@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+  <title>Aman Kumar | PHP & WHMCS Developer</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Font -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- AOS (Animate On Scroll) CSS -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/aos@2.3.4/dist/aos.css"
+  />
+
+  <!-- Font Awesome (icons) -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nl5q9WzF3zCwSXAV2Xp1ZVK8vWjQ2VqH+8WqZ2z5V7h3rj2V8CA=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+
+  <style>
+    body {
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Simple page loader */
+    #pageLoader {
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(
+        circle at top,
+        #1d4ed8,
+        #020617 55%
+      );
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 50;
+    }
+
+    .loader-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      margin: 0 4px;
+      animation: bounce 0.8s infinite alternate;
+    }
+
+    .loader-dot:nth-child(1) {
+      animation-delay: 0s;
+    }
+    .loader-dot:nth-child(2) {
+      animation-delay: 0.15s;
+    }
+    .loader-dot:nth-child(3) {
+      animation-delay: 0.3s;
+    }
+
+    @keyframes bounce {
+      from {
+        transform: translateY(0);
+        opacity: 0.5;
+      }
+      to {
+        transform: translateY(-10px);
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100">
+  <!-- Page Loader -->
+  <div id="pageLoader">
+    <div class="flex items-center space-x-2">
+      <div class="loader-dot bg-sky-400"></div>
+      <div class="loader-dot bg-sky-300"></div>
+      <div class="loader-dot bg-sky-500"></div>
+    </div>
+  </div>
+
+  <!-- Main wrapper -->
+  <div class="min-h-screen">
+    <!-- Top Nav -->
+    <header
+      class="sticky top-0 z-40 backdrop-blur bg-slate-950/70 border-b border-slate-800/60"
+    >
+      <div
+        class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16"
+      >
+        <div class="flex items-center space-x-2">
+          <div
+            class="w-9 h-9 rounded-2xl bg-gradient-to-br from-sky-400 to-indigo-500 flex items-center justify-center text-xl font-bold"
+          >
+            A
+          </div>
+          <div>
+            <p class="text-sm font-semibold">Aman Kumar</p>
+            <p class="text-[11px] text-slate-400">
+              PHP & WHMCS Developer
+            </p>
+          </div>
+        </div>
+
+        <nav class="hidden md:flex space-x-6 text-sm">
+          <a href="#about" class="hover:text-sky-400 transition">About</a>
+          <a href="#skills" class="hover:text-sky-400 transition">Skills</a>
+          <a href="#projects" class="hover:text-sky-400 transition"
+            >Projects</a
+          >
+          <a href="#experience" class="hover:text-sky-400 transition"
+            >Experience</a
+          >
+          <a href="#contact" class="hover:text-sky-400 transition"
+            >Contact</a
+          >
+        </nav>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section
+      id="home"
+      class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24"
+    >
+      <div
+        class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center"
+        data-aos="fade-up"
+      >
+        <!-- Left -->
+        <div>
+          <p class="text-sm font-medium text-sky-400 mb-3">
+            PHP · Laravel · WHMCS · Frontend
+          </p>
+          <h1
+            class="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight mb-4"
+          >
+            I build modern
+            <span class="text-sky-400">hosting & automation</span>
+            solutions using WHMCS & Laravel.
+          </h1>
+          <p class="text-sm sm:text-base text-slate-300 mb-6">
+            I'm Aman Kumar, a PHP & WHMCS developer with
+            <span class="font-semibold">1.5+ years of experience</span>
+            building e-commerce, WHMCS modules, addons, custom reports,
+            server modules and theme customisations.
+          </p>
+
+          <div class="flex flex-wrap items-center gap-3 mb-6">
+            <a
+              href="#contact"
+              class="inline-flex items-center px-4 py-2 text-sm font-medium rounded-xl bg-sky-500 hover:bg-sky-400 text-white shadow-lg shadow-sky-500/30 transition"
+            >
+              <i class="fa-solid fa-paper-plane mr-2"></i>
+              Contact Me
+            </a>
+            <a
+              href="#projects"
+              class="inline-flex items-center px-4 py-2 text-sm font-medium rounded-xl border border-slate-700 hover:border-sky-400 text-slate-200 hover:text-sky-300 transition"
+            >
+              <i class="fa-solid fa-code mr-2"></i>
+              View My Work
+            </a>
+          </div>
+
+          <div class="flex flex-wrap items-center gap-4 text-xs text-slate-400">
+            <div class="flex items-center space-x-2">
+              <span
+                class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"
+              ></span>
+              <span>Available for full-time & freelance work</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right -->
+        <div class="relative">
+          <div
+            class="absolute -top-10 -right-6 w-40 h-40 bg-sky-500/20 blur-3xl rounded-full"
+          ></div>
+          <div
+            class="relative bg-slate-900/80 border border-slate-800 rounded-3xl p-6 sm:p-8 shadow-xl shadow-sky-900/40"
+          >
+            <p class="text-xs font-semibold text-sky-400 mb-3">
+              Tech Snapshot
+            </p>
+            <div class="grid grid-cols-2 gap-3 text-xs">
+              <div
+                class="rounded-2xl bg-slate-900/70 border border-slate-800 px-3 py-3"
+              >
+                <p class="text-[11px] text-slate-400 mb-1">
+                  Backend & Platform
+                </p>
+                <p class="font-medium">
+                  PHP, Laravel, WHMCS, MySQL
+                </p>
+              </div>
+              <div
+                class="rounded-2xl bg-slate-900/70 border border-slate-800 px-3 py-3"
+              >
+                <p class="text-[11px] text-slate-400 mb-1">
+                  Frontend
+                </p>
+                <p class="font-medium">
+                  HTML, CSS, JS, jQuery
+                </p>
+              </div>
+              <div
+                class="rounded-2xl bg-slate-900/70 border border-slate-800 px-3 py-3"
+              >
+                <p class="text-[11px] text-slate-400 mb-1">
+                  WHMCS Work
+                </p>
+                <p class="font-medium">
+                  Addons, Servers, Reports, Hooks
+                </p>
+              </div>
+              <div
+                class="rounded-2xl bg-slate-900/70 border border-slate-800 px-3 py-3"
+              >
+                <p class="text-[11px] text-slate-400 mb-1">
+                  Tools
+                </p>
+                <p class="font-medium">
+                  Git, cPanel, Hosting, APIs
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section
+      id="about"
+      class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 sm:pb-16"
+    >
+      <div class="grid lg:grid-cols-2 gap-10 lg:gap-16">
+        <div data-aos="fade-right">
+          <h2 class="text-xl sm:text-2xl font-semibold mb-4">
+            About Me
+          </h2>
+          <p class="text-sm text-slate-300 mb-3">
+            I'm Aman Kumar, a PHP developer from Himachal Pradesh with a
+            strong focus on
+            <span class="font-semibold"
+              >WHMCS development, automation and hosting products</span
+            >.
+          </p>
+          <p class="text-sm text-slate-300 mb-3">
+            After completing my
+            <span class="font-semibold">BCA</span> and a
+            <span class="font-semibold">6-month training in PHP/Laravel</span
+            >, I’ve been working as a PHP developer with hands-on
+            experience in:
+          </p>
+          <ul class="list-disc list-inside text-sm text-slate-300 space-y-1">
+            <li>Laravel-based e-commerce development</li>
+            <li>
+              WHMCS addons, server modules, payment & revenue automation
+            </li>
+            <li>Theme and UI customisation for hosting businesses</li>
+            <li>Custom reports, hooks, and integrations with external systems</li>
+          </ul>
+        </div>
+
+        <div data-aos="fade-left">
+          <h3 class="text-lg font-semibold mb-3">Education & Training</h3>
+          <div class="space-y-3 text-sm">
+            <div
+              class="rounded-2xl bg-slate-900/70 border border-slate-800 px-4 py-3"
+            >
+              <p class="text-slate-200 font-medium">
+                Bachelor of Computer Applications (BCA)
+              </p>
+              <p class="text-slate-400 text-xs">
+                College Name · 2024 Passout
+              </p>
+            </div>
+            <div
+              class="rounded-2xl bg-slate-900/70 border border-slate-800 px-4 py-3"
+            >
+              <p class="text-slate-200 font-medium">
+                6-Month Training – PHP & Laravel
+              </p>
+              <p class="text-slate-400 text-xs">
+                Training Institute / Company · PHP, Laravel, MySQL,
+                HTML/CSS, JS/jQuery
+              </p>
+            </div>
+            <div
+              class="rounded-2xl bg-slate-900/70 border border-slate-800 px-4 py-3"
+            >
+              <p class="text-slate-200 font-medium">
+                1.5+ Years – PHP / WHMCS Developer
+              </p>
+              <p class="text-slate-400 text-xs">
+                Working on WHMCS-based hosting platforms, automation
+                modules and Laravel e-commerce.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section
+      id="skills"
+      class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 sm:pb-16"
+    >
+      <div class="flex items-center justify-between mb-5">
+        <h2 class="text-xl sm:text-2xl font-semibold">Tech Stack</h2>
+        <p class="text-xs text-slate-400">
+          Core focus: WHMCS development & Laravel
+        </p>
+      </div>
+
+      <div
+        class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4"
+        data-aos="fade-up"
+      >
+        <!-- Backend -->
+        <div
+          class="rounded-2xl bg-slate-900/80 border border-slate-800 px-4 py-4"
+        >
+          <p class="text-xs text-slate-400 mb-1">Backend</p>
+          <p class="font-semibold mb-2">PHP, Laravel, WHMCS</p>
+          <p class="text-xs text-slate-400">
+            Building custom modules, automation flows and secure APIs.
+          </p>
+        </div>
+
+        <!-- Frontend -->
+        <div
+          class="rounded-2xl bg-slate-900/80 border border-slate-800 px-4 py-4"
+        >
+          <p class="text-xs text-slate-400 mb-1">Frontend</p>
+          <p class="font-semibold mb-2">HTML, CSS, JavaScript, jQuery</p>
+          <p class="text-xs text-slate-400">
+            Clean, responsive, and fast-loading interfaces for hosting
+            sites.
+          </p>
+        </div>
+
+        <!-- Databases & Tools -->
+        <div
+          class="rounded-2xl bg-slate-900/80 border border-slate-800 px-4 py-4"
+        >
+          <p class="text-xs text-slate-400 mb-1">Databases & Tools</p>
+          <p class="font-semibold mb-2">MySQL, Git, cPanel</p>
+          <p class="text-xs text-slate-400">
+            Experience with shared/Cloud hosting environments & deployments.
+          </p>
+        </div>
+
+        <!-- WHMCS Modules -->
+        <div
+          class="rounded-2xl bg-slate-900/80 border border-slate-800 px-4 py-4"
+        >
+          <p class="text-xs text-slate-400 mb-1">WHMCS Modules</p>
+          <p class="font-semibold mb-2">
+            Addons, Servers, Reports, Hooks
+          </p>
+          <p class="text-xs text-slate-400">
+            Revenue reports, image management, payment capture, CRM sync
+            and more.
+          </p>
+        </div>
+
+        <!-- Hosting & Automation -->
+        <div
+          class="rounded-2xl bg-slate-900/80 border border-slate-800 px-4 py-4"
+        >
+          <p class="text-xs text-slate-400 mb-1">
+            Hosting & Automation
+          </p>
+          <p class="font-semibold mb-2">
+            KYC, SmarterMail, Affiliate systems
+          </p>
+          <p class="text-xs text-slate-400">
+            Custom business logic for hosting providers and SaaS
+            platforms.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section
+      id="projects"
+      class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 sm:pb-16"
+    >
+      <div class="flex items-center justify-between mb-5">
+        <h2 class="text-xl sm:text-2xl font-semibold">Projects</h2>
+        <p class="text-xs text-slate-400">
+          Selected client & product work
+        </p>
+      </div>
+
+      <div class="space-y-4" data-aos="fade-up">
+        <!-- MyAlmaree -->
+        <div
+          class="rounded-2xl bg-slate-900/80 border border-slate-800 p-4 sm:p-5 flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3"
+        >
+          <div>
+            <p class="text-sm font-semibold">
+              MyAlmaree – Laravel E-commerce
+            </p>
+            <a
+              href="https://myalmaree.com/"
+              target="_blank"
+              class="text-xs text-sky-400 hover:underline"
+            >
+              https://myalmaree.com/
+            </a>
+            <p class="text-xs text-slate-400 mt-2">
+              Worked on an e-commerce platform built in Laravel,
+              focusing on product flows, order-related work and
+              improving frontend & backend integration.
+            </p>
+            <p class="text-xs text-slate-500 mt-1">
+              <span class="font-semibold text-slate-300">Stack:</span>
+              Laravel, PHP, MySQL, HTML, CSS, JS/jQuery
+            </p>
+          </div>
+        </div>
+
+        <!-- W3Domains -->
+        <div
+          class="rounded-2xl bg-slate-900/80 border border-slate-800 p-4 sm:p-5 flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3"
+        >
+          <div>
+            <p class="text-sm font-semibold">
+              W3Domains – WHMCS Customisation
+            </p>
+            <a
+              href="https://w3domains.com/"
+              target="_blank"
+              class="text-xs text-sky-400 hover:underline"
+            >
+              https://w3domains.com/
+            </a>
+            <p class="text-xs text-slate-400 mt-2">
+              Theme customisation for WHMCS, along with custom KYC
+              verification addon and SmarterMail server module for
+              automated provisioning.
+            </p>
+            <p class="text-xs text-slate-500 mt-1">
+              <span class="font-semibold text-slate-300">Focus:</span>
+              WHMCS addon development, server module, UI tweaks.
+            </p>
+          </div>
+        </div>
+
+        <!-- SpectraCloud -->
+        <div
+          class="rounded-2xl bg-slate-900/80 border border-slate-800 p-4 sm:p-5 flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3"
+        >
+          <div>
+            <p class="text-sm font-semibold">
+              SpectraCloud – WHMCS Theme
+            </p>
+            <a
+              href="https://www.spectracloud.com/"
+              target="_blank"
+              class="text-xs text-sky-400 hover:underline"
+            >
+              https://www.spectracloud.com/
+            </a>
+            <p class="text-xs text-slate-400 mt-2">
+              Worked on WHMCS theme customisation to match the brand and
+              create a clean hosting storefront experience.
+            </p>
+          </div>
+        </div>
+
+        <!-- AffiliateHosting.ai -->
+        <div
+          class="rounded-2xl bg-slate-900/80 border border-slate-800 p-4 sm:p-5 flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3"
+        >
+          <div>
+            <p class="text-sm font-semibold">
+              AffiliateHosting.ai – Custom Affiliate Addon
+            </p>
+            <a
+              href="https://affiliatehosting.ai/members"
+              target="_blank"
+              class="text-xs text-sky-400 hover:underline"
+            >
+              https://affiliatehosting.ai/members
+            </a>
+            <p class="text-xs text-slate-400 mt-2">
+              Built and customised a WHMCS addon module to manage a
+              custom affiliate system along with theme customisations for
+              the client area.
+            </p>
+          </div>
+        </div>
+
+        <!-- Mara.cloud -->
+        <div
+          class="rounded-2xl bg-slate-900/80 border border-slate-800 p-4 sm:p-5 flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3"
+        >
+          <div>
+            <p class="text-sm font-semibold">
+              Mara.cloud – WHMCS Theme Customisations
+            </p>
+            <a
+              href="https://mara.cloud/"
+              target="_blank"
+              class="text-xs text-sky-400 hover:underline"
+            >
+              https://mara.cloud/
+            </a>
+            <p class="text-xs text-slate-400 mt-2">
+              Performed multiple theme customisations and UI adjustments
+              to improve the user journey for a cloud hosting product.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- WHMCS Modules Highlight -->
+      <div class="mt-8" data-aos="fade-up">
+        <h3 class="text-lg font-semibold mb-3">
+          Highlighted WHMCS Modules
+        </h3>
+        <div class="grid md:grid-cols-2 gap-4 text-xs">
+          <div
+            class="rounded-2xl bg-slate-900/80 border border-slate-800 p-4"
+          >
+            <p class="font-semibold mb-1">Revenue Report</p>
+            <p class="text-slate-400">
+              Admins are assigned servers and can only view revenue
+              reports for their assigned servers. Main admin has full
+              configuration control.
+            </p>
+          </div>
+          <div
+            class="rounded-2xl bg-slate-900/80 border border-slate-800 p-4"
+          >
+            <p class="font-semibold mb-1">Images Management</p>
+            <p class="text-slate-400">
+              Central addon to manage website images for products,
+              servers, banners, logos and other assets—uploading,
+              replacing and organising images from WHMCS admin.
+            </p>
+          </div>
+          <div
+            class="rounded-2xl bg-slate-900/80 border border-slate-800 p-4"
+          >
+            <p class="font-semibold mb-1">Capture Payments</p>
+            <p class="text-slate-400">
+              Module that captures payments for pending invoices using
+              customers' saved payment methods and retries until success
+              or failure based on configuration.
+            </p>
+          </div>
+          <div
+            class="rounded-2xl bg-slate-900/80 border border-slate-800 p-4"
+          >
+            <p class="font-semibold mb-1">CRM Sync Module</p>
+            <p class="text-slate-400">
+              Syncs WHMCS clients, invoices, services and orders with an
+              external CRM or website for centralised customer
+              management.
+            </p>
+          </div>
+        </div>
+        <p class="text-[11px] text-slate-500 mt-2">
+          Also experienced with many other WHMCS hooks, modules and
+          custom integrations.
+        </p>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section
+      id="experience"
+      class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 sm:pb-16"
+    >
+      <h2 class="text-xl sm:text-2xl font-semibold mb-4">
+        Experience Timeline
+      </h2>
+      <div class="space-y-4 text-sm" data-aos="fade-up">
+        <div
+          class="border-l border-slate-800 pl-4 relative"
+        >
+          <span
+            class="w-2 h-2 bg-sky-400 rounded-full absolute -left-[5px] top-1"
+          ></span>
+          <p class="font-semibold text-slate-100">
+            PHP & WHMCS Developer
+          </p>
+          <p class="text-xs text-slate-400 mb-1">
+            Company Name · 1.5+ years
+          </p>
+          <ul class="text-xs text-slate-300 list-disc list-inside space-y-1">
+            <li>
+              Development and customisation of WHMCS addons, server
+              modules, hooks and reports.
+            </li>
+            <li>
+              Worked on Laravel-based e-commerce and customer-facing
+              hosting platforms.
+            </li>
+            <li>
+              Payment automation, KYC flows, CRM sync and affiliate
+              system integrations.
+            </li>
+          </ul>
+        </div>
+
+        <div
+          class="border-l border-slate-800 pl-4 relative"
+        >
+          <span
+            class="w-2 h-2 bg-sky-400 rounded-full absolute -left-[5px] top-1"
+          ></span>
+          <p class="font-semibold text-slate-100">
+            PHP / Laravel Trainee
+          </p>
+          <p class="text-xs text-slate-400 mb-1">
+            Training Institute · 6 months
+          </p>
+          <ul class="text-xs text-slate-300 list-disc list-inside space-y-1">
+            <li>
+              Learned core PHP, Laravel, MySQL and MVC architecture.
+            </li>
+            <li>
+              Worked with HTML, CSS, JavaScript and jQuery.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section
+      id="contact"
+      class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 sm:pb-24"
+    >
+      <div
+        class="rounded-3xl bg-slate-900/80 border border-slate-800 p-6 sm:p-8"
+        data-aos="fade-up"
+      >
+        <h2 class="text-xl sm:text-2xl font-semibold mb-3">
+          Let’s Work Together
+        </h2>
+        <p class="text-sm text-slate-300 mb-4">
+          I'm open to full-time roles and freelance projects related to
+          WHMCS, Laravel, hosting automation and custom web
+          development.
+        </p>
+
+        <div class="grid md:grid-cols-2 gap-6 text-sm">
+          <div class="space-y-3">
+            <div class="flex items-center space-x-2">
+              <i class="fa-solid fa-envelope text-sky-400"></i>
+              <a
+                href="mailto:youremail@example.com"
+                class="text-slate-200 text-sm hover:text-sky-400"
+              >
+                youremail@example.com
+              </a>
+            </div>
+            <div class="flex items-center space-x-2">
+              <i class="fa-brands fa-github text-sky-400"></i>
+              <a
+                href="https://github.com/aman-kumar-10"
+                target="_blank"
+                class="text-slate-200 text-sm hover:text-sky-400"
+              >
+                github.com/aman-kumar-10
+              </a>
+            </div>
+            <div class="flex items-center space-x-2">
+              <i class="fa-brands fa-linkedin text-sky-400"></i>
+              <a
+                href="#"
+                target="_blank"
+                class="text-slate-200 text-sm hover:text-sky-400"
+              >
+                LinkedIn Profile
+              </a>
+            </div>
+          </div>
+
+          <div class="space-y-2 text-xs text-slate-400">
+            <p>
+              👉 Replace email, LinkedIn, company & college names with
+              your actual details in the code.
+            </p>
+            <p>
+              👉 You can add a contact form later using a service like
+              Netlify Forms without any backend code.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- AOS JS -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 700,
+      once: true,
+      offset: 80,
+    });
+
+    // Hide loader after page load
+    window.addEventListener("load", () => {
+      const loader = document.getElementById("pageLoader");
+      if (loader) {
+        loader.classList.add("opacity-0", "pointer-events-none");
+        setTimeout(() => loader.remove(), 400);
+      }
+    });
+  </script>
+</body>
+</html>
